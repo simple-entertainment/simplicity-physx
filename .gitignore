@@ -1,0 +1,15 @@
+# Eclipse
+#########################
+*.metadata
+*.settings
+
+# Visual Studio
+#########################
+*.filters
+*.user
+
+# Output
+#########################
+Debug*/
+Release*/
+
