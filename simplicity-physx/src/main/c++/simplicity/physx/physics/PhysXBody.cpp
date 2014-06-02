@@ -32,11 +32,11 @@ namespace simplicity
 	{
 		PhysXBody::PhysXBody(PxPhysics& physics, PxCooking& cooking, const Material& material, Model* model,
 			const Matrix44& transform, bool dynamic) :
-			actor(NULL),
+			actor(nullptr),
 			dynamic(dynamic),
 			material(material),
 			model(model),
-			physxMaterial(NULL),
+			physxMaterial(nullptr),
 			physxModel()
 		{
 			physxMaterial = physics.createMaterial(material.friction, material.friction, material.restitution);
@@ -58,7 +58,7 @@ namespace simplicity
 		void PhysXBody::applyForce(const Vector3& force, const Vector3&)
 		{
 			PxRigidBody* rigidBody = actor->isRigidBody();
-			if (rigidBody != NULL)
+			if (rigidBody != nullptr)
 			{
 				rigidBody->addForce(PhysXVector::toPxVec3(force));
 			}
@@ -67,7 +67,7 @@ namespace simplicity
 		void PhysXBody::applyTorque(const Vector3& torque)
 		{
 			PxRigidBody* rigidBody = actor->isRigidBody();
-			if (rigidBody != NULL)
+			if (rigidBody != nullptr)
 			{
 				rigidBody->addTorque(PhysXVector::toPxVec3(torque));
 			}
@@ -76,7 +76,7 @@ namespace simplicity
 		void PhysXBody::clearForces()
 		{
 			PxRigidBody* rigidBody = actor->isRigidBody();
-			if (rigidBody != NULL)
+			if (rigidBody != nullptr)
 			{
 				rigidBody->clearForce();
 			}
@@ -85,7 +85,7 @@ namespace simplicity
 		void PhysXBody::createPhysXModel(PxPhysics& physics, PxCooking& cooking)
 		{
 			const Plane* plane = dynamic_cast<const Plane*>(model);
-			if (plane != NULL)
+			if (plane != nullptr)
 			{
 				actor = PxCreatePlane(physics, PxPlane(PhysXVector::toPxVec3(plane->getPositionOnPlane()),
 					PhysXVector::toPxVec3(plane->getNormal())), *physxMaterial);
@@ -93,13 +93,13 @@ namespace simplicity
 			}
 
 			const Cube* cube = dynamic_cast<const Cube*>(model);
-			if (cube != NULL)
+			if (cube != nullptr)
 			{
 				physxModel.reset(new PxBoxGeometry(cube->getHalfEdgeLength(), cube->getHalfEdgeLength(),
 					cube->getHalfEdgeLength()));
 			}
 			const Mesh* mesh = dynamic_cast<const Mesh*>(model);
-			if (mesh != NULL)
+			if (mesh != nullptr)
 			{
 				// Need a concurrent block of data...
 				const unsigned int* indices = mesh->getIndices();
@@ -129,7 +129,7 @@ namespace simplicity
 				physxModel.reset(new PxConvexMeshGeometry(physics.createConvexMesh(input)));
 			}
 			const Sphere* sphere = dynamic_cast<const Sphere*>(model);
-			if (sphere != NULL)
+			if (sphere != nullptr)
 			{
 				physxModel.reset(new PxSphereGeometry(sphere->getRadius()));
 			}
@@ -143,7 +143,7 @@ namespace simplicity
 		Vector3 PhysXBody::getLinearVelocity() const
 		{
 			PxRigidBody* rigidBody = actor->isRigidBody();
-			if (rigidBody != NULL)
+			if (rigidBody != nullptr)
 			{
 				return PhysXVector::toVector3(rigidBody->getLinearVelocity());
 			}
@@ -178,7 +178,7 @@ namespace simplicity
 		void PhysXBody::setLinearVelocity(const Vector3& linearVelocity)
 		{
 			PxRigidBody* rigidBody = actor->isRigidBody();
-			if (rigidBody != NULL)
+			if (rigidBody != nullptr)
 			{
 				rigidBody->setLinearVelocity(PhysXVector::toPxVec3(linearVelocity));
 			}

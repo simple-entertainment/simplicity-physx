@@ -33,13 +33,13 @@ namespace simplicity
 		PhysXEngine::PhysXEngine(const Vector3& gravity, float fixedTimeStep) :
 			allocator(),
 			cooking(),
-			cpuDispatcher(NULL),
+			cpuDispatcher(nullptr),
 			errorCallback(),
 			fixedTimeStep(fixedTimeStep),
-			foundation(NULL),
+			foundation(nullptr),
 			gravity(gravity),
-			physics(NULL),
-			scene(NULL),
+			physics(nullptr),
+			scene(nullptr),
 			simulationEventCallback(),
 			simulationFilterShader(PxDefaultSimulationFilterShader)
 		{
@@ -52,12 +52,12 @@ namespace simplicity
 				PxProfileZoneManager::createProfileZoneManager(foundation);
 			physics = PxCreatePhysics(PX_PHYSICS_VERSION, *foundation, tolerancesScale, true, &profileZoneManager);
 
-			if (physics->getPvdConnectionManager() != NULL)
+			if (physics->getPvdConnectionManager() != nullptr)
 			{
 				PxInitExtensions(*physics);
 				PvdConnection* debuggerConnection = PxVisualDebuggerExt::createConnection(physics->getPvdConnectionManager(),
 					"localhost", 5425, 100, PxVisualDebuggerExt::getAllConnectionFlags());
-				if (debuggerConnection != NULL)
+				if (debuggerConnection != nullptr)
 				{
 					debuggerConnection->release();
 				}
@@ -142,12 +142,12 @@ namespace simplicity
 
 		void PhysXEngine::onStop()
 		{
-			if (physics != NULL)
+			if (physics != nullptr)
 			{
 				physics->release();
 			}
 
-			if (foundation != NULL)
+			if (foundation != nullptr)
 			{
 				foundation->release();
 			}
