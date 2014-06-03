@@ -33,29 +33,29 @@ namespace simplicity
 				PhysXBody(::physx::PxPhysics& physics, ::physx::PxCooking& cooking, const Material& material, Model* model,
 					const Matrix44& transform, bool dynamic);
 
-				void applyForce(const Vector3& force, const Vector3& position);
+				void applyForce(const Vector3& force, const Vector3& position) override;
 
-				void applyTorque(const Vector3& torque);
+				void applyTorque(const Vector3& torque) override;
 
-				void clearForces();
+				void clearForces() override;
 
 				::physx::PxActor* getActor();
 
-				Vector3 getLinearVelocity() const;
+				Vector3 getLinearVelocity() const override;
 
-				const Material& getMaterial() const;
+				const Material& getMaterial() const override;
 
-				const Model* getModel() const;
+				const Model* getModel() const override;
 
 				::physx::PxGeometry* getPhysXModel();
 
-				bool isDynamic();
+				bool isDynamic() override;
 
-				void setDynamic(bool dynamic);
+				void setDynamic(bool dynamic) override;
 
-				void setLinearVelocity(const Vector3& linearVelocity);
+				void setLinearVelocity(const Vector3& linearVelocity) override;
 
-				void setMaterial(const Material& material);
+				void setMaterial(const Material& material) override;
 
 			private:
 				::physx::PxActor* actor;

@@ -30,7 +30,8 @@ namespace simplicity
 		public:
 			PhysXPhysicsFactory(::physx::PxPhysics* physics, ::physx::PxCooking* cooking);
 
-			std::unique_ptr<Body> createBody(const Body::Material& material, Model* model, const Matrix44& transform, bool dynamic);
+			std::unique_ptr<Body> createBody(const Body::Material& material, Model* model, const Matrix44& transform,
+				bool dynamic) override;
 
 		private:
 			::physx::PxCooking* cooking;

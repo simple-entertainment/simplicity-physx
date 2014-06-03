@@ -31,19 +31,19 @@ namespace simplicity
 			public:
 				PhysXEngine(const Vector3& gravity, float fixedTimeStep = 0.0f);
 
-				void advance();
+				void advance() override;
 
 				::physx::PxCooking* getCooking();
 
 				::physx::PxPhysics* getPhysics();
 
-				void onAddEntity(Entity& entity);
+				void onAddEntity(Entity& entity) override;
 
-				void onPlay();
+				void onPlay() override;
 
-				void onRemoveEntity(Entity& entity);
+				void onRemoveEntity(Entity& entity) override;
 
-				void onStop();
+				void onStop() override;
 
 				void setSimulationEventCallback(std::unique_ptr<::physx::PxSimulationEventCallback> simulationEventCallback);
 
