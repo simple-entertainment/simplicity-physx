@@ -22,7 +22,7 @@ using namespace std;
 
 namespace simplicity
 {
-	namespace physx
+	namespace simphysx
 	{
 		PhysXPhysicsFactory::PhysXPhysicsFactory(PxPhysics* physics, PxCooking* cooking) :
 			cooking(cooking),

@@ -1,0 +1,9 @@
+You'll have to get your own copy of the PhysX libs as I'm not sure if I'm allowed to redistribute them.
+
+Go here to get a free* copy of the libs: https://developer.nvidia.com/gameworksdownload
+
+*Read the terms and conditions.
+
+Once you've got it you can copy the contents of the Bin/<architecture> and Lib/<architecture> folders here!
+
+Be warned: PhysX forces you to use the /MT flag on Windows for all binaries in your project...

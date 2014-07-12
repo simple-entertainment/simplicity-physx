@@ -23,13 +23,13 @@
 
 namespace simplicity
 {
-	namespace physx
+	namespace simphysx
 	{
 		namespace PhysXMatrix
 		{
-			::physx::PxTransform toPxTransform(const Matrix44& original);
+			physx::PxTransform toPxTransform(const Matrix44& original);
 
-			Matrix44 toMatrix44(const ::physx::PxTransform& original);
+			Matrix44 toMatrix44(const physx::PxTransform& original);
 		}
 	}
 }

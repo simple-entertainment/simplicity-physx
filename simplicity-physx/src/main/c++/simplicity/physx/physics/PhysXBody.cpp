@@ -28,7 +28,7 @@ using namespace std;
 
 namespace simplicity
 {
-	namespace physx
+	namespace simphysx
 	{
 		PhysXBody::PhysXBody(PxPhysics& physics, PxCooking& cooking, const Material& material, Model* model,
 			const Matrix44& transform, bool dynamic) :

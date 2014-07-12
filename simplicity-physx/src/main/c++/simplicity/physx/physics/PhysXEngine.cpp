@@ -28,7 +28,7 @@ using namespace std;
 
 namespace simplicity
 {
-	namespace physx
+	namespace simphysx
 	{
 		PhysXEngine::PhysXEngine(const Vector3& gravity, float fixedTimeStep) :
 			allocator(),

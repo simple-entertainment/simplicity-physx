@@ -23,20 +23,20 @@
 
 namespace simplicity
 {
-	namespace physx
+	namespace simphysx
 	{
 		class PhysXPhysicsFactory : public PhysicsFactory
 		{
 		public:
-			PhysXPhysicsFactory(::physx::PxPhysics* physics, ::physx::PxCooking* cooking);
+			PhysXPhysicsFactory(physx::PxPhysics* physics, physx::PxCooking* cooking);
 
 			std::unique_ptr<Body> createBody(const Body::Material& material, Model* model, const Matrix44& transform,
 				bool dynamic) override;
 
 		private:
-			::physx::PxCooking* cooking;
+			physx::PxCooking* cooking;
 
-			::physx::PxPhysics* physics;
+			physx::PxPhysics* physics;
 		};
 	}
 }

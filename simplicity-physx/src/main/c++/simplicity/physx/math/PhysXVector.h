@@ -23,13 +23,13 @@
 
 namespace simplicity
 {
-	namespace physx
+	namespace simphysx
 	{
 		namespace PhysXVector
 		{
-			::physx::PxVec3 toPxVec3(const Vector3& original);
+			physx::PxVec3 toPxVec3(const Vector3& original);
 
-			Vector3 toVector3(const ::physx::PxVec3& original);
+			Vector3 toVector3(const physx::PxVec3& original);
 		}
 	}
 }

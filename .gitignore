@@ -1,15 +1,31 @@
+# CMake
+#########################
+cmake_install.cmake
+CMakeCache.txt
+CMakeFiles
+Debug
+MinSizeRel
+Release
+RelWithDebInfo
+
 # Eclipse
 #########################
+*.cproject
 *.metadata
+*.project
 *.settings
 
 # Visual Studio
 #########################
 *.filters
+*.sln
 *.user
+*.vcxproj
 
-# Output
+# PhysX Headers and Libs
 #########################
-Debug*/
-Release*/
+simplicity-physx/dep/physx/include/*
+!simplicity-physx/dep/physx/include/README
+simplicity-physx/dep/physx/lib/*
+!simplicity-physx/dep/physx/lib/README
 

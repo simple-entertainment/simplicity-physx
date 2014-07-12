@@ -1,0 +1,8 @@
+You'll have to get your own copy of the PhysX headers as I'm not sure if I'm allowed to redistribute them.
+
+Go here to get a free* copy of the headers: https://developer.nvidia.com/gameworksdownload
+
+*Read the terms and conditions.
+
+Once you've got it you can copy the contents of the Include folder here!
+

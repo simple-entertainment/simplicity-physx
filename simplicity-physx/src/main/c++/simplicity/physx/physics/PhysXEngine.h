@@ -24,7 +24,7 @@
 
 namespace simplicity
 {
-	namespace physx
+	namespace simphysx
 	{
 		class PhysXEngine : public Engine
 		{
@@ -33,9 +33,9 @@ namespace simplicity
 
 				void advance() override;
 
-				::physx::PxCooking* getCooking();
+				physx::PxCooking* getCooking();
 
-				::physx::PxPhysics* getPhysics();
+				physx::PxPhysics* getPhysics();
 
 				void onAddEntity(Entity& entity) override;
 
@@ -45,32 +45,32 @@ namespace simplicity
 
 				void onStop() override;
 
-				void setSimulationEventCallback(std::unique_ptr<::physx::PxSimulationEventCallback> simulationEventCallback);
+				void setSimulationEventCallback(std::unique_ptr<physx::PxSimulationEventCallback> simulationEventCallback);
 
-				void setSimulationFilterShader(::physx::PxSimulationFilterShader simulationFilterShader);
+				void setSimulationFilterShader(physx::PxSimulationFilterShader simulationFilterShader);
 
 			private:
-				::physx::PxDefaultAllocator allocator;
+				physx::PxDefaultAllocator allocator;
 
-				::physx::PxCooking* cooking;
+				physx::PxCooking* cooking;
 
-				::physx::PxDefaultCpuDispatcher* cpuDispatcher;
+				physx::PxDefaultCpuDispatcher* cpuDispatcher;
 
-				::physx::PxDefaultErrorCallback errorCallback;
+				physx::PxDefaultErrorCallback errorCallback;
 
 				float fixedTimeStep;
 
-				::physx::PxFoundation* foundation;
+				physx::PxFoundation* foundation;
 
 				Vector3 gravity;
 
-				::physx::PxPhysics* physics;
+				physx::PxPhysics* physics;
 
-				::physx::PxScene* scene;
+				physx::PxScene* scene;
 
-				std::unique_ptr<::physx::PxSimulationEventCallback> simulationEventCallback;
+				std::unique_ptr<physx::PxSimulationEventCallback> simulationEventCallback;
 
-				::physx::PxSimulationFilterShader simulationFilterShader;
+				physx::PxSimulationFilterShader simulationFilterShader;
 		};
 	}
 }

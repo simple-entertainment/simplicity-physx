@@ -25,12 +25,12 @@
 
 namespace simplicity
 {
-	namespace physx
+	namespace simphysx
 	{
 		class PhysXBody : public Body
 		{
 			public:
-				PhysXBody(::physx::PxPhysics& physics, ::physx::PxCooking& cooking, const Material& material, Model* model,
+				PhysXBody(physx::PxPhysics& physics, physx::PxCooking& cooking, const Material& material, Model* model,
 					const Matrix44& transform, bool dynamic);
 
 				void applyForce(const Vector3& force, const Vector3& position) override;
@@ -39,7 +39,7 @@ namespace simplicity
 
 				void clearForces() override;
 
-				::physx::PxActor* getActor();
+				physx::PxActor* getActor();
 
 				Vector3 getLinearVelocity() const override;
 
@@ -47,7 +47,7 @@ namespace simplicity
 
 				const Model* getModel() const override;
 
-				::physx::PxGeometry* getPhysXModel();
+				physx::PxGeometry* getPhysXModel();
 
 				bool isDynamic() override;
 
@@ -58,7 +58,7 @@ namespace simplicity
 				void setMaterial(const Material& material) override;
 
 			private:
-				::physx::PxActor* actor;
+				physx::PxActor* actor;
 
 				bool dynamic;
 
@@ -66,11 +66,11 @@ namespace simplicity
 
 				Model* model;
 
-				::physx::PxMaterial* physxMaterial;
+				physx::PxMaterial* physxMaterial;
 
-				std::unique_ptr<::physx::PxGeometry> physxModel;
+				std::unique_ptr<physx::PxGeometry> physxModel;
 
-				void createPhysXModel(::physx::PxPhysics& physics, ::physx::PxCooking& cooking);
+				void createPhysXModel(physx::PxPhysics& physics, physx::PxCooking& cooking);
 		};
 	}
 }

@@ -20,7 +20,7 @@ using namespace physx;
 
 namespace simplicity
 {
-	namespace physx
+	namespace simphysx
 	{
 		namespace PhysXVector
 		{
