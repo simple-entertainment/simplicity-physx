@@ -15,12 +15,17 @@ RelWithDebInfo
 *.project
 *.settings
 
-# Visual Studio
+# Make
 #########################
-*.filters
-*.sln
-*.user
-*.vcxproj
+Makefile
+
+# Misc
+#########################
+*~
+
+# Output
+#########################
+libsimplicity-physx.a
 
 # PhysX Headers and Libs
 #########################
@@ -28,4 +33,11 @@ simplicity-physx/dep/physx/include/*
 !simplicity-physx/dep/physx/include/README
 simplicity-physx/dep/physx/lib/*
 !simplicity-physx/dep/physx/lib/README
+
+# Visual Studio
+#########################
+*.filters
+*.sln
+*.user
+*.vcxproj
 
