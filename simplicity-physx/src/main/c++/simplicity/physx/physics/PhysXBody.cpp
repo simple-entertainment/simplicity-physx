@@ -1,5 +1,5 @@
 /*
-* Copyright © 2014 Simple Entertainment Limited
+* Copyright ï¿½ 2014 Simple Entertainment Limited
 *
 * This file is part of The Simplicity Engine.
 *
@@ -84,7 +84,7 @@ namespace simplicity
 
 		void PhysXBody::createPhysXModel(PxPhysics& physics, PxCooking& cooking)
 		{
-			const Plane* plane = dynamic_cast<const Plane*>(model);
+			Plane* plane = dynamic_cast<Plane*>(model);
 			if (plane != nullptr)
 			{
 				actor = PxCreatePlane(physics, PxPlane(PhysXVector::toPxVec3(plane->getPositionOnPlane()),
@@ -92,26 +92,28 @@ namespace simplicity
 				return;
 			}
 
-			const Cube* cube = dynamic_cast<const Cube*>(model);
+			Cube* cube = dynamic_cast<Cube*>(model);
 			if (cube != nullptr)
 			{
 				physxModel.reset(new PxBoxGeometry(cube->getHalfEdgeLength(), cube->getHalfEdgeLength(),
 					cube->getHalfEdgeLength()));
 			}
-			const Mesh* mesh = dynamic_cast<const Mesh*>(model);
+			Mesh* mesh = dynamic_cast<Mesh*>(model);
 			if (mesh != nullptr)
 			{
 				// Need a concurrent block of data...
-				const unsigned int* indices = mesh->getIndices();
-				const Vertex* vertices = mesh->getVertices();
+				// TODO Try this without conversion...
+				const MeshData& meshData = mesh->getData();
+
 				vector<PxVec3> convexMeshData;
-				convexMeshData.reserve(mesh->getIndexCount());
-				for (unsigned int index = 0; index < mesh->getIndexCount(); index++)
+				convexMeshData.reserve(meshData.size());
+
+				for (unsigned int index = 0; index < meshData.size(); index++)
 				{
 					PxVec3 vertex;
-					vertex.x = vertices[indices[index]].position.X();
-					vertex.y = vertices[indices[index]].position.Y();
-					vertex.z = vertices[indices[index]].position.Z();
+					vertex.x = meshData[index].position.X();
+					vertex.y = meshData[index].position.Y();
+					vertex.z = meshData[index].position.Z();
 					convexMeshData.push_back(vertex);
 				}
 
